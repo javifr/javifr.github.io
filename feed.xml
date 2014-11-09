@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Blog Name</title>
+  <subtitle>Blog subtitle</subtitle>
+  <id>http://blog.url.com/</id>
+  <link href="http://blog.url.com/"/>
+  <link href="http://blog.url.com/feed.xml" rel="self"/>
+  <updated>2014-11-09T23:17:00+01:00</updated>
+  <author>
+    <name>Blog Author</name>
+  </author>
+  <entry>
+    <title>Satanas new it better</title>
+    <link rel="alternate" href="http://blog.url.com/2014/11/09/satanas-new-it-better/"/>
+    <id>http://blog.url.com/2014/11/09/satanas-new-it-better/</id>
+    <published>2014-11-09T23:17:00+01:00</published>
+    <updated>2014-11-09T23:17:24+01:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">
+</content>
+  </entry>
+  <entry>
+    <title>The coronary arteria pager</title>
+    <link rel="alternate" href="http://blog.url.com/2014/11/09/the-coronary-arteria-pager/"/>
+    <id>http://blog.url.com/2014/11/09/the-coronary-arteria-pager/</id>
+    <published>2014-11-09T23:17:00+01:00</published>
+    <updated>2014-11-09T23:17:36+01:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">
+</content>
+  </entry>
+  <entry>
+    <title>The bullshit test</title>
+    <link rel="alternate" href="http://blog.url.com/2014/11/09/the-bullshit-test/"/>
+    <id>http://blog.url.com/2014/11/09/the-bullshit-test/</id>
+    <published>2014-11-09T23:16:00+01:00</published>
+    <updated>2014-11-09T23:17:31+01:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">
+</content>
+  </entry>
+  <entry>
+    <title>Some gnarly test</title>
+    <link rel="alternate" href="http://blog.url.com/2014/11/09/some-gnarly-test/"/>
+    <id>http://blog.url.com/2014/11/09/some-gnarly-test/</id>
+    <published>2014-11-09T23:15:00+01:00</published>
+    <updated>2014-11-09T23:15:31+01:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;h1 id="no-more-budget"&gt;No more budget&lt;/h1&gt;
+
+&lt;h2 id="this-is-a-super-cool-secondary-header"&gt;This is a super cool secondary header&lt;/h2&gt;
+
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
+
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
+
+</content>
+  </entry>
+  <entry>
+    <title>The source of extinction</title>
+    <link rel="alternate" href="http://blog.url.com/2014/11/09/the-source-of-extinction/"/>
+    <id>http://blog.url.com/2014/11/09/the-source-of-extinction/</id>
+    <published>2014-11-09T13:02:00+01:00</published>
+    <updated>2014-11-09T23:02:46+01:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;h1 id="the-rich-poinch"&gt;The rich poinch&lt;/h1&gt;
+
+&lt;p&gt;The rich thing.&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Get the shit out of here</title>
+    <link rel="alternate" href="http://blog.url.com/2014/11/09/get-the-shit-out-of-here/"/>
+    <id>http://blog.url.com/2014/11/09/get-the-shit-out-of-here/</id>
+    <published>2014-11-09T13:02:00+01:00</published>
+    <updated>2014-11-09T23:02:49+01:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;h1 id="get-the-shit"&gt;Get the shit&lt;/h1&gt;
+
+&lt;p&gt;Right here, right now.&lt;/p&gt;
+</content>
+  </entry>
+</feed>
