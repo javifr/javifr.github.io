@@ -22,25 +22,30 @@
   </head>
   <body class="x2014 x2014_page x2014_page_2 x2014_page_2_index">
 
-  <div id="page" class="hfeed">
-
-    <header id="branding" role="banner">
-    <hgroup>
-      <h1 id="site-title"><span><a href="" title="" rel="home">Javi Fernández</a></span></h1>
-    </hgroup>
-
-    <nav id="access" role="navigation">
-      <ul>
+    
+<!-- Fixed navbar -->
+<nav class="navbar navbar-inverse" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Javi Fernández</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
         <li><a href="/articles/">Articles</a></li>
         <li><a href="/notes/">Notes</a></li>
         <li><a href="/info/">Info</a></li>
       </ul>
-    </nav><!-- #access -->
-</header><!-- #branding -->
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
 
-
-    <div id="main">
-
+    <div class="container">
       <h1>Archive for
     2014
 </h1>
@@ -54,8 +59,9 @@
 </ul>
 
 
-
     </div>
+
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
