@@ -24,7 +24,6 @@
   </head>
   <body class="tag tag_order tag_order_index">
 
-    
 <!-- Fixed navbar -->
 <nav class="navbar navbar-inverse" role="navigation">
   <div class="container">
@@ -47,12 +46,57 @@
   </div>
 </nav>
 
-    <div class="container">
-      <div class="page-header">
+<div class="container">
+  <div class="page-header">
   <h1>order</h1>
 </div>
 
 
+    <h2><a href="/2014/11/19/rake-routes-for-grape-api/">Rake routes for Grape Api</a> <span>Nov 19</span></h2>
+    <!--
+    <h1 id="rake-routes-for-grape">Rake routes for Grape</h1>
+
+<p>If you are a <a href="http://rubyonrails.org/">Rails</a> developer using <a href="https://github.com/intridea/grape">Grape</a> you’ll miss a command similar to <code>rake routes</code> but listing the Grape generated routes. In order to have the same functionallity I’ve build a little rake task.</p>
+
+<p>In your rails ( or rails-api ) project create this file <strong>/lib/tasks/grape.rake</strong> with this content:</p>
+
+<div class="highlight ruby"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6</pre></td><td class="code"><pre><span class="n">namespace</span> <span class="ss">:grape</span> <span class="k">do</span>
+  <span class="n">desc</span> <span class="s2">"routes"</span>
+  <span class="n">task</span> <span class="ss">:routes</span> <span class="o">=&gt;</span> <span class="ss">:environment</span> <span class="k">do</span>
+    <span class="no">API</span><span class="o">::</span><span class="no">Root</span><span class="p">.</span><span class="nf">routes</span><span class="p">.</span><span class="nf">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">route</span><span class="o">|</span> <span class="nb">puts</span> <span class="s2">"</span><span class="si">#{</span><span class="n">route</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">"</span> <span class="p">}</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table>
+</div>
+
+<p>Then, you can call it inside your project like this:</p>
+
+<div class="highlight shell"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>rake grape:routes
+</pre></td></tr></tbody></table>
+</div>
+
+<p>And this could be a sample output:</p>
+
+<div class="highlight shell"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6</pre></td><td class="code"><pre><span class="nv">version</span><span class="o">=</span>v1, <span class="nv">method</span><span class="o">=</span>POST, <span class="nv">path</span><span class="o">=</span>/customers<span class="o">(</span>.:format<span class="o">)</span>
+<span class="nv">version</span><span class="o">=</span>v1, <span class="nv">method</span><span class="o">=</span>GET, <span class="nv">path</span><span class="o">=</span>/customers<span class="o">(</span>.:format<span class="o">)</span>
+<span class="nv">version</span><span class="o">=</span>v1, <span class="nv">method</span><span class="o">=</span>GET, <span class="nv">path</span><span class="o">=</span>/customers/:id<span class="o">(</span>.:format<span class="o">)</span>
+<span class="nv">version</span><span class="o">=</span>v1, <span class="nv">method</span><span class="o">=</span>PATCH, <span class="nv">path</span><span class="o">=</span>/customers/:id<span class="o">(</span>.:format<span class="o">)</span>
+<span class="nv">version</span><span class="o">=</span>v1, <span class="nv">method</span><span class="o">=</span>GET, <span class="nv">path</span><span class="o">=</span>/rewards<span class="o">(</span>.:format<span class="o">)</span>
+<span class="nv">version</span><span class="o">=</span>v1, <span class="nv">method</span><span class="o">=</span>POST, <span class="nv">path</span><span class="o">=</span>/rewards<span class="o">(</span>.:format<span class="o">)</span>
+</pre></td></tr></tbody></table>
+</div>
+
+    -->
     <h2><a href="/2014/01/01/http-cache-explained/">HTTP Cache clearly explained</a> <span>Jan  1</span></h2>
     <!--
     <h1 id="http-cache-clearly-explained">HTTP Cache clearly explained</h1>
@@ -73,7 +117,7 @@
   </ul>
 </nav>
 
-    </div>
+</div>
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

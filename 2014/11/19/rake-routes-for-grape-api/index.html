@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Use title if it's in the page YAML frontmatter -->
-    <title>Sometimes you have to write to figure it out</title>
+    <title>Rake routes for Grape Api</title>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
@@ -22,7 +22,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body class="x2014 x2014_07 x2014_07_16 x2014_07_16_sometimes-you-have-to-write-to-figure-it-out x2014_07_16_sometimes-you-have-to-write-to-figure-it-out_index">
+  <body class="x2014 x2014_11 x2014_11_19 x2014_11_19_rake-routes-for-grape-api x2014_11_19_rake-routes-for-grape-api_index">
 
 <!-- Fixed navbar -->
 <nav class="navbar navbar-inverse" role="navigation">
@@ -48,32 +48,47 @@
 
 <div class="container">
   <article class="col-md-8 col-md-offset-2">
-  <h1 id="sometimes-you-have-to-write-to-figure-it-out">Sometimes you have to write to figure it out</h1>
+  <h1 id="rake-routes-for-grape">Rake routes for Grape</h1>
 
-<iframe width="560" height="315" src="//www.youtube.com/embed/VOU6zoRI3BU" frameborder="0" allowfullscreen=""></iframe>
+<p>If you are a <a href="http://rubyonrails.org/">Rails</a> developer using <a href="https://github.com/intridea/grape">Grape</a> you’ll miss a command similar to <code>rake routes</code> but listing the Grape generated routes. In order to have the same functionallity I’ve build a little rake task.</p>
 
-<blockquote>
-  <p>Your real problem is that you don’t know what you think <br />
-Sometimes you have to write to figure it out</p>
-</blockquote>
+<p>In your rails ( or rails-api ) project create this file <strong>/lib/tasks/grape.rake</strong> with this content:</p>
 
-<blockquote>
-  <p>Sometimes you have to live to figure out <br />
-Meticolous plans often don’t hold up</p>
-</blockquote>
+<div class="highlight ruby"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6</pre></td><td class="code"><pre><span class="n">namespace</span> <span class="ss">:grape</span> <span class="k">do</span>
+  <span class="n">desc</span> <span class="s2">"routes"</span>
+  <span class="n">task</span> <span class="ss">:routes</span> <span class="o">=&gt;</span> <span class="ss">:environment</span> <span class="k">do</span>
+    <span class="no">API</span><span class="o">::</span><span class="no">Root</span><span class="p">.</span><span class="nf">routes</span><span class="p">.</span><span class="nf">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">route</span><span class="o">|</span> <span class="nb">puts</span> <span class="s2">"</span><span class="si">#{</span><span class="n">route</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">"</span> <span class="p">}</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table>
+</div>
 
-<blockquote>
-  <p>Less planning and more living <br />
-Burst the double bubble of comfort and convention <br />
-and just do stuff <br />
-even if you don’t know where it’ll lead <br />
-but because <br />
-This may sounds risky… and it is.</p>
-</blockquote>
+<p>Then, you can call it inside your project like this:</p>
 
-<blockquote>
-  <p>The greater risk is fear failure more than mediocrity</p>
-</blockquote>
+<div class="highlight shell"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>rake grape:routes
+</pre></td></tr></tbody></table>
+</div>
+
+<p>And this could be a sample output:</p>
+
+<div class="highlight shell"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6</pre></td><td class="code"><pre><span class="nv">version</span><span class="o">=</span>v1, <span class="nv">method</span><span class="o">=</span>POST, <span class="nv">path</span><span class="o">=</span>/customers<span class="o">(</span>.:format<span class="o">)</span>
+<span class="nv">version</span><span class="o">=</span>v1, <span class="nv">method</span><span class="o">=</span>GET, <span class="nv">path</span><span class="o">=</span>/customers<span class="o">(</span>.:format<span class="o">)</span>
+<span class="nv">version</span><span class="o">=</span>v1, <span class="nv">method</span><span class="o">=</span>GET, <span class="nv">path</span><span class="o">=</span>/customers/:id<span class="o">(</span>.:format<span class="o">)</span>
+<span class="nv">version</span><span class="o">=</span>v1, <span class="nv">method</span><span class="o">=</span>PATCH, <span class="nv">path</span><span class="o">=</span>/customers/:id<span class="o">(</span>.:format<span class="o">)</span>
+<span class="nv">version</span><span class="o">=</span>v1, <span class="nv">method</span><span class="o">=</span>GET, <span class="nv">path</span><span class="o">=</span>/rewards<span class="o">(</span>.:format<span class="o">)</span>
+<span class="nv">version</span><span class="o">=</span>v1, <span class="nv">method</span><span class="o">=</span>POST, <span class="nv">path</span><span class="o">=</span>/rewards<span class="o">(</span>.:format<span class="o">)</span>
+</pre></td></tr></tbody></table>
+</div>
 
   </article>
 </div>
