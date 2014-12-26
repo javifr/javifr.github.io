@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Use title if it's in the page YAML frontmatter -->
-    <title>Javi Fernández</title>
+    <title>Consuming Hypermedia APIs with Restangular</title>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
@@ -22,7 +22,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body class="tag tag_notes tag_notes_index">
+  <body class="x2014 x2014_12 x2014_12_21 x2014_12_21_consuming-hypermedia-apis-with-restangular x2014_12_21_consuming-hypermedia-apis-with-restangular_index">
 
 <!-- Fixed navbar -->
 <nav class="navbar navbar-inverse" role="navigation">
@@ -47,14 +47,8 @@
 </nav>
 
 <div class="container">
-  <h1>notes</h1>
-</div>
-
-  <article class="post notes order angular hypermedia restangular">
-    <div class="container">
-      <h2><a href="/2014/12/21/consuming-hypermedia-apis-with-restangular/">Consuming Hypermedia APIs with Restangular</a> <span>Dec 21</span></h2>
-      <!--
-      <h1 id="consuming-hypermedia-apis-with-restangular">Consuming Hypermedia API’s with Restangular</h1>
+  <article class="col-md-8 col-md-offset-2">
+  <h1 id="consuming-hypermedia-apis-with-restangular">Consuming Hypermedia API’s with Restangular</h1>
 
 <p>At <a href="https://loyal.guru/">Loyal Guru</a> we’ve build an <a href="http://stateless.co/hal_specification.html">Hypermedia</a> Rest API that is powering our different apps ( hybrid mobile applications and product backend ). This different clients are <a href="https://angularjs.org/">Angular</a> applications consuming the API with the great <a href="https://github.com/mgonto/restangular">Restangular</a> library.</p>
 
@@ -416,183 +410,80 @@
   <li><a href="http://blog.smartbear.com/api-testing/kin-lane-why-all-the-hate-toward-hypermedia/">Hypermedia the next “cloud”?</a></li>
 </ul>
 
-      -->
-    </div>
+	  <div id="disqus_thread"></div>
+<script type="text/javascript">
+//<![CDATA[
+                  var disqus_shortname = 'javifernandez';
+          
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+//]]>
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
   </article>
-  <article class="post notes order">
-    <div class="container">
-      <h2><a href="/2014/11/19/rake-routes-for-grape-api/">Rake routes for Grape Api</a> <span>Nov 19</span></h2>
-      <!--
-      <h1 id="rake-routes-for-grape">Rake routes for Grape</h1>
-
-<p>If you are a <a href="http://rubyonrails.org/">Rails</a> developer using <a href="https://github.com/intridea/grape">Grape</a> you’ll miss a command similar to <code>rake routes</code> but listing the Grape generated routes. In order to have the same functionallity I’ve build a little rake task.</p>
-
-<p>In your rails ( or rails-api ) project create this file <strong>/lib/tasks/grape.rake</strong> with this content:</p>
-
-<div class="highlight ruby"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3
-4
-5
-6</pre></td><td class="code"><pre><span class="n">namespace</span> <span class="ss">:grape</span> <span class="k">do</span>
-  <span class="n">desc</span> <span class="s2">"routes"</span>
-  <span class="n">task</span> <span class="ss">:routes</span> <span class="o">=&gt;</span> <span class="ss">:environment</span> <span class="k">do</span>
-    <span class="no">API</span><span class="o">::</span><span class="no">Root</span><span class="p">.</span><span class="nf">routes</span><span class="p">.</span><span class="nf">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">route</span><span class="o">|</span> <span class="nb">puts</span> <span class="s2">"</span><span class="si">#{</span><span class="n">route</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">"</span> <span class="p">}</span>
-  <span class="k">end</span>
-<span class="k">end</span>
-</pre></td></tr></tbody></table>
 </div>
 
-<p>Then, you can call it inside your project like this:</p>
-
-<div class="highlight shell"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>rake grape:routes
-</pre></td></tr></tbody></table>
-</div>
-
-<p>And this could be a sample output:</p>
-
-<div class="highlight shell"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3
-4
-5
-6</pre></td><td class="code"><pre><span class="nv">version</span><span class="o">=</span>v1, <span class="nv">method</span><span class="o">=</span>POST, <span class="nv">path</span><span class="o">=</span>/customers<span class="o">(</span>.:format<span class="o">)</span>
-<span class="nv">version</span><span class="o">=</span>v1, <span class="nv">method</span><span class="o">=</span>GET, <span class="nv">path</span><span class="o">=</span>/customers<span class="o">(</span>.:format<span class="o">)</span>
-<span class="nv">version</span><span class="o">=</span>v1, <span class="nv">method</span><span class="o">=</span>GET, <span class="nv">path</span><span class="o">=</span>/customers/:id<span class="o">(</span>.:format<span class="o">)</span>
-<span class="nv">version</span><span class="o">=</span>v1, <span class="nv">method</span><span class="o">=</span>PATCH, <span class="nv">path</span><span class="o">=</span>/customers/:id<span class="o">(</span>.:format<span class="o">)</span>
-<span class="nv">version</span><span class="o">=</span>v1, <span class="nv">method</span><span class="o">=</span>GET, <span class="nv">path</span><span class="o">=</span>/rewards<span class="o">(</span>.:format<span class="o">)</span>
-<span class="nv">version</span><span class="o">=</span>v1, <span class="nv">method</span><span class="o">=</span>POST, <span class="nv">path</span><span class="o">=</span>/rewards<span class="o">(</span>.:format<span class="o">)</span>
-</pre></td></tr></tbody></table>
-</div>
-
-      -->
-    </div>
-  </article>
-  <article class="post notes music creativity dis">
-    <div class="container">
-      <h2><a href="/2014/11/09/damon-albarn-the-creative-class/">Damon Albarn at The Creative Class</a> <span>Nov  9</span></h2>
-      <!--
-      <h1 id="damon-albarn-at-the-creative-class">Damon Albarn at The Creative Class</h1>
-
-<iframe src="//player.vimeo.com/video/98330468?color=09e0c4" width="500" height="281" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
-
-      -->
-    </div>
-  </article>
-  <article class="post notes music dis">
-    <div class="container">
-      <h2><a href="/2014/11/09/delta-spirit-into-the-wide/">Delta Spirit - Into the wide</a> <span>Nov  9</span></h2>
-      <!--
-      <h1 id="delta-spirit---into-the-wide">Delta Spirit - Into the wide</h1>
-
-<p>Delta Spirit last release is terrific.<br />
-I can say, the best album I’ve heard in YEARS. The kind of album that makes me make music, a collection of good big songs.</p>
-
-<iframe src="https://embed.spotify.com/?uri=spotify:album:1DtWmx5n2RoTuMFe3wn2pY" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
-
-      -->
-    </div>
-  </article>
-  <article class="post notes dis">
-    <div class="container">
-      <h2><a href="/2014/07/16/sometimes-you-have-to-write-to-figure-it-out/">Sometimes you have to write to figure it out</a> <span>Jul 16</span></h2>
-      <!--
-      <h1 id="sometimes-you-have-to-write-to-figure-it-out">Sometimes you have to write to figure it out</h1>
-
-<iframe width="560" height="315" src="//www.youtube.com/embed/VOU6zoRI3BU" frameborder="0" allowfullscreen=""></iframe>
-
-<blockquote>
-  <p>Your real problem is that you don’t know what you think <br />
-Sometimes you have to write to figure it out</p>
-</blockquote>
-
-<blockquote>
-  <p>Sometimes you have to live to figure out <br />
-Meticolous plans often don’t hold up</p>
-</blockquote>
-
-<blockquote>
-  <p>Less planning and more living <br />
-Burst the double bubble of comfort and convention <br />
-and just do stuff <br />
-even if you don’t know where it’ll lead <br />
-but because <br />
-This may sounds risky… and it is.</p>
-</blockquote>
-
-<blockquote>
-  <p>The greater risk is fear failure more than mediocrity</p>
-</blockquote>
-
-      -->
-    </div>
-  </article>
-  <article class="post notes dis">
-    <div class="container">
-      <h2><a href="/2014/05/18/the-immediacy-era/">The immediacy era, Kurt Cobain's wise words</a> <span>May 18</span></h2>
-      <!--
-      <h1 id="the-immediacy-era-kurt-cobains-wise-words">The immediacy era, Kurt Cobain’s wise words</h1>
-
-<p>Written 20 years ago, true today too.</p>
-
-<blockquote>
-  <p>The conspiracy toward success in America is immediacy. … Here today, gone tomorrow because yesterday’s following was nothing more than a tool in every individuals need for self-importance, entertainment, and social rituals. Art that has long lasting value cannot be appreciated by the majorities. Only the same, small percent will value arts patience as they always have. This is good. The ones who are unaware do not deserve false suggestions in their purchasing duties. <br />
-<strong>Kurt Cobain</strong></p>
-</blockquote>
-
-<p>Vía <a href="http://www.amazon.es/exec/obidos/ASIN/157322359X/braipick03-21">Journals</a>.</p>
-
-      -->
-    </div>
-  </article>
-  <article class="post notes dis">
-    <div class="container">
-      <h2><a href="/2014/03/28/a-love-hate-relationship-with-code/">A love-hate relationship with code</a> <span>Mar 28</span></h2>
-      <!--
-      <h1 id="a-love-hate-relationship-with-code">A love-hate relationship with code</h1>
-
-<p>I’ve always liked <a href="http://www.number27.org/">Jonathan Harris</a>, his different projects, his perspective and his path in general. This interview on <a href="http://thegreatdiscontent.com/interview/jonathan-harris">The Great Discontent</a> have some great thoughts about coding which resonates a lot with my feelings about the same topic.</p>
-
-<blockquote>
-  <p>I frequently struggle with my relationship to coding. I’m not someone who adores the process of coding, but there is something about it that can be beautiful. Life is very messy and chaotic, but when you’re building a computer program, if it’s designed well and if you’re the only one working on it, it’s neither messy nor chaotic: it’s incredibly orderly. You know where everything goes and you can obsess over every little detail, so you can live in this perfect, imaginary universe. It’s kind of like the ultimate expression of my childhood impulse of hiding under a sheet fort and reading comic books all day. Code allows that on a much bigger level, where you can engineer a reality and then live within that reality for most of your days. That reality can be free of conflict, free of complexity and emotions, and I think there’s something appealing to a lot of coders about disappearing into such a space. It’s very utopian.</p>
-</blockquote>
-
-<blockquote>
-  <p>It’s a highly controlled environment, too.
-It is. But there is another part of me that recognizes how alienating that process can be when it comes to being in relationships with other human beings, connecting with other people, and even being genuinely awake to nature and to the world happening around you. When you’re living in your head, in these abstract, constructed realities of code, they don’t always map onto physical reality in a good way. That can be a little tricky sometimes, and I’ve found myself ping-ponging between two modes of existing: one is living in the perfect abstraction, and the other is living in the imperfect reality. Neither of them feel complete, so I’m constantly moving back and forth between them. I definitely have a love-hate relationship with code.</p>
-</blockquote>
-
-      -->
-    </div>
-  </article>
-  <article class="post notes order">
-    <div class="container">
-      <h2><a href="/2014/01/01/http-cache-explained/">HTTP Cache clearly explained</a> <span>Jan  1</span></h2>
-      <!--
-      <h1 id="http-cache-clearly-explained">HTTP Cache clearly explained</h1>
-
-<p>Currently I’m involved in developing the <a href="https://local.guru">Loyal Guru</a> API and while facing many different challenges, one big perfomance concern is caching. This article from Heroku developer center demistifies HTTP Cache.</p>
-
-<p><a href="https://devcenter.heroku.com/articles/increasing-application-performance-with-http-cache-headers">Increasing Application Perfomance with Http Cache Headers</a></p>
-
-
-      -->
-    </div>
-  </article>
-
-
-
-<div class="container pag">
-<div class="row">
-  <div class="col-md-6 col-sm-6 col-xs-6 prev">
-  </div>
-  <div class="col-md-6 col-sm-6 col-xs-6 next">
-  </div>
-</div>
-</div>
-
-
-
+<div class="container-fluid container-full-width last-posts">
+<a href="/2014/12/21/consuming-hypermedia-apis-with-restangular/">    <article class="col-md-4 post notes order angular hypermedia restangular">
+      <div class="vcenter">
+        <h2 class="h3">Consuming Hypermedia APIs with Restangular</h2>
+        <span>Dec 21</span>
+      </div>
+    </article>
+</a><a href="/2014/11/19/rake-routes-for-grape-api/">    <article class="col-md-4 post notes order">
+      <div class="vcenter">
+        <h2 class="h3">Rake routes for Grape Api</h2>
+        <span>Nov 19</span>
+      </div>
+    </article>
+</a><a href="/2014/11/10/tom-thum-beatbox-brilliance/">    <article class="col-md-4 post articles dis">
+      <div class="vcenter">
+        <h2 class="h3">Tom Thum or beatbox brilliance</h2>
+        <span>Nov 10</span>
+      </div>
+    </article>
+</a><a href="/2014/11/09/damon-albarn-the-creative-class/">    <article class="col-md-4 post notes music creativity dis">
+      <div class="vcenter">
+        <h2 class="h3">Damon Albarn at The Creative Class</h2>
+        <span>Nov  9</span>
+      </div>
+    </article>
+</a><a href="/2014/11/09/delta-spirit-into-the-wide/">    <article class="col-md-4 post notes music dis">
+      <div class="vcenter">
+        <h2 class="h3">Delta Spirit - Into the wide</h2>
+        <span>Nov  9</span>
+      </div>
+    </article>
+</a><a href="/2014/07/16/sometimes-you-have-to-write-to-figure-it-out/">    <article class="col-md-4 post notes dis">
+      <div class="vcenter">
+        <h2 class="h3">Sometimes you have to write to figure it out</h2>
+        <span>Jul 16</span>
+      </div>
+    </article>
+</a><a href="/2014/05/18/the-immediacy-era/">    <article class="col-md-4 post notes dis">
+      <div class="vcenter">
+        <h2 class="h3">The immediacy era, Kurt Cobain's wise words</h2>
+        <span>May 18</span>
+      </div>
+    </article>
+</a><a href="/2014/03/28/a-love-hate-relationship-with-code/">    <article class="col-md-4 post notes dis">
+      <div class="vcenter">
+        <h2 class="h3">A love-hate relationship with code</h2>
+        <span>Mar 28</span>
+      </div>
+    </article>
+</a><a href="/2014/01/01/http-cache-explained/">    <article class="col-md-4 post notes order">
+      <div class="vcenter">
+        <h2 class="h3">HTTP Cache clearly explained</h2>
+        <span>Jan  1</span>
+      </div>
+    </article>
+</a></div>
 
 	<!-- Google Analytics -->
 	<script type="text/javascript">

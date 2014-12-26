@@ -50,6 +50,375 @@
   <h1>order</h1>
 </div>
 
+  <article class="post notes order angular hypermedia restangular">
+    <div class="container">
+      <h2><a href="/2014/12/21/consuming-hypermedia-apis-with-restangular/">Consuming Hypermedia APIs with Restangular</a> <span>Dec 21</span></h2>
+      <!--
+      <h1 id="consuming-hypermedia-apis-with-restangular">Consuming Hypermedia API’s with Restangular</h1>
+
+<p>At <a href="https://loyal.guru/">Loyal Guru</a> we’ve build an <a href="http://stateless.co/hal_specification.html">Hypermedia</a> Rest API that is powering our different apps ( hybrid mobile applications and product backend ). This different clients are <a href="https://angularjs.org/">Angular</a> applications consuming the API with the great <a href="https://github.com/mgonto/restangular">Restangular</a> library.</p>
+
+<p>Before jumping into Restangular we’ve tried with <a href="https://docs.angularjs.org/api/ngResource/service/$resource">ngResource</a> ( too simple for the task at hand and <a href="https://github.com/mgonto/restangular#differences-with-resource">not based on promises</a> ), <a href="https://github.com/LuvDaSun/angular-hal">Angular-hal</a> ( nice but immature ) and some others ( <a href="https://github.com/basti1302/traverson">Traverson</a> ). Restangular has proven to be very easy to use, with a good documentation and is very extended among the Angular community.</p>
+
+<p>Let’s jump into some code that shows how to consume an Hypermedia API ( embedded resources, links, etc… ) with Restangular.</p>
+
+<h2 id="musicians-and-instruments">Musicians and instruments</h2>
+
+<p>Let’s say we have an endpoint for musical <strong>instruments</strong> and another endpoint for <strong>musicians</strong> with and hypothetical https://api.acme.com base url. An instrument has many categories, and a musician has many instruments. So for the sake of the example, categories will be embedded resources for an instrument resource and instruments will be embedded resources for the musician resource.</p>
+
+<h3 id="singular-instrument-resource">Singular Instrument resource</h3>
+<p>Response to a GET https://api.acme.com/instruments/1</p>
+
+<div class="highlight json"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35</pre></td><td class="code"><pre><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fender Telecaster American Deluxe"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This Guitar has a new compound-radius fretboard ...."</span><span class="w">
+  </span><span class="s2">"_embedded"</span><span class="err">:</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"categories"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"guitar"</span><span class="w">
+        </span><span class="s2">"_links"</span><span class="err">:</span><span class="p">{</span><span class="w">
+          </span><span class="s2">"self"</span><span class="p">:{</span><span class="w">
+            </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/categories/2"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"solid body"</span><span class="w">
+        </span><span class="s2">"_links"</span><span class="err">:</span><span class="p">{</span><span class="w">
+          </span><span class="s2">"self"</span><span class="p">:{</span><span class="w">
+            </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/categories/10"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+  </span><span class="s2">"_links"</span><span class="err">:</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"self"</span><span class="p">:{</span><span class="w">
+      </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/instruments/1"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"thumbnail"</span><span class="p">:{</span><span class="w">
+      </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://path.to/an/awesome/image.jpg"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table>
+</div>
+
+<p>Some comments:   </p>
+
+<ul>
+  <li>
+    <p>Note the <strong>_embedded</strong> attribute, it has the categories key with an array of category resources ( summarized ).</p>
+  </li>
+  <li>
+    <p>The thumbnail image of the resource is represented as a <strong>_link</strong> attribute, the same goes for the <strong>self</strong> reference of the resource.</p>
+  </li>
+</ul>
+
+<h3 id="paginated-collection-of-musician-resources">Paginated collection of Musician resources</h3>
+<p>Response to a GET https://api.acme.com/musicians?page=2</p>
+
+<div class="highlight json"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45</pre></td><td class="code"><pre><span class="p">{</span><span class="w">
+  </span><span class="s2">"_embedded"</span><span class="p">:{</span><span class="w">
+    </span><span class="s2">"musicians"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bo Madsen"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"age"</span><span class="p">:</span><span class="w"> </span><span class="mi">34</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"_embedded"</span><span class="p">:{</span><span class="w">
+          </span><span class="s2">"instruments"</span><span class="p">:[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fender Telecaster American Deluxe"</span><span class="w">
+              </span><span class="s2">"_links"</span><span class="err">:</span><span class="p">{</span><span class="w">
+                </span><span class="s2">"self"</span><span class="p">:{</span><span class="w">
+                  </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/instruments/1"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+              </span><span class="p">}</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Guild Starfire V"</span><span class="w">
+              </span><span class="s2">"_links"</span><span class="err">:</span><span class="p">{</span><span class="w">
+                </span><span class="s2">"self"</span><span class="p">:{</span><span class="w">
+                  </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/instruments/12"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+              </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">          
+      </span><span class="p">},</span><span class="w">
+      </span><span class="err">...</span><span class="w"> </span><span class="err">more</span><span class="w"> </span><span class="err">musicians</span><span class="w">
+    </span><span class="p">]</span><span class="w">   
+  </span><span class="p">}</span><span class="w">
+  </span><span class="s2">"_links"</span><span class="err">:</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"self"</span><span class="p">:{</span><span class="w">
+      </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/musicians?page=2"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"next"</span><span class="p">:{</span><span class="w">
+      </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/musicians?page=3"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"prev"</span><span class="p">:{</span><span class="w">
+      </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/musicians"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table>
+</div>
+
+<p>Some comments:</p>
+
+<ul>
+  <li>
+    <p>An index of resources is represented as a list of embedded resources ( this is a practice followed by <a href="https://developers.teowaki.com/api-hypermedia#listsasembeddedresources">Teowaki Api</a> that we also adopted ).</p>
+  </li>
+  <li>
+    <p>Every musician resource has an <strong>embedded collection</strong> of instrument resources. </p>
+  </li>
+  <li>
+    <p>The <strong>_links</strong> next and prev help you with the pagination.</p>
+  </li>
+</ul>
+
+<h3 id="restangular-seetings-for-the-api">Restangular seetings for the API</h3>
+
+<div class="highlight javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29</pre></td><td class="code"><pre><span class="c1">// Keep in mind that a provider must be used only on a config block</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">config</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">RestangularProvider</span><span class="p">)){</span>
+
+    <span class="c1">// Set the base url for your API endpoints</span>
+    <span class="nx">RestangularProvider</span><span class="p">.</span><span class="nx">setBaseUrl</span><span class="p">(</span><span class="s2">"https://api.acme.com"</span><span class="p">);</span>
+
+    <span class="c1">// You can set some default headers for calling the API</span>
+    <span class="nx">RestangularProvider</span><span class="p">.</span><span class="nx">setDefaultHeaders</span><span class="p">(</span>
+        <span class="p">{</span> <span class="s2">"Accept"</span><span class="p">:</span> <span class="s1">'application/vnd.acme-v1'</span><span class="p">},</span>
+        <span class="p">{</span> <span class="s2">"Content-Type"</span><span class="p">:</span> <span class="s2">"application/json+hal"</span> <span class="p">}</span>
+    <span class="p">);</span>
+
+    <span class="c1">// Set an interceptor in order to parse the API response </span>
+    <span class="c1">// when getting a list of resources</span>
+    <span class="nx">RestangularProvider</span><span class="p">.</span><span class="nx">setResponseInterceptor</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">operation</span><span class="p">,</span> <span class="nx">what</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">operation</span> <span class="o">==</span> <span class="s1">'getList'</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">resp</span> <span class="o">=</span>  <span class="nx">data</span><span class="p">.</span><span class="nx">_embedded</span><span class="p">[</span><span class="nx">what</span><span class="p">];</span>
+        <span class="nx">resp</span><span class="p">.</span><span class="nx">_links</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">_links</span><span class="p">;</span>
+        <span class="k">return</span> <span class="nx">resp</span>
+      <span class="p">}</span>
+      <span class="k">return</span> <span class="nx">data</span><span class="p">;</span>
+    <span class="p">});</span>
+
+    <span class="c1">// Using self link for self reference resources</span>
+    <span class="nx">RestangularProvider</span><span class="p">.</span><span class="nx">setRestangularFields</span><span class="p">({</span>
+      <span class="na">selfLink</span><span class="p">:</span> <span class="s1">'self.link'</span>
+    <span class="p">});</span>
+
+<span class="p">});</span>
+</pre></td></tr></tbody></table>
+</div>
+
+<p>Some comments:</p>
+
+<ul>
+  <li>
+    <p>Check <a href="https://github.com/mgonto/restangular#using-self-reference-resources">Self reference resourcees</a></p>
+  </li>
+  <li>
+    <p>Check <a href="https://github.com/mgonto/restangular#user-content-my-response-is-actually-wrapped-with-some-metadata-how-do-i-get-the-data-in-that-case">Response wrapped with metadata</a></p>
+  </li>
+</ul>
+
+<h3 id="api-consumption">API Consumption</h3>
+
+<div class="highlight javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31</pre></td><td class="code"><pre><span class="nx">app</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">Restangular</span><span class="p">)){</span>
+
+    <span class="c1">// Fetch a single product </span>
+    <span class="nx">Restangular</span><span class="p">.</span><span class="nx">one</span><span class="p">(</span><span class="s2">"instruments"</span><span class="p">,</span><span class="mi">1</span><span class="p">).</span><span class="nx">get</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">instrument</span><span class="p">){</span>
+        <span class="c1">// Get an attribute</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">instrument</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+        <span class="c1">// Get the name of a category related to the requested instrument</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">instrument</span><span class="p">.</span><span class="nx">_embedded</span><span class="p">.</span><span class="nx">categories</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">name</span><span class="p">);</span>
+        <span class="c1">// Get the thumbnail image of the resource</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">instrument</span><span class="p">.</span><span class="nx">_links</span><span class="p">.</span><span class="nx">thumbnail</span><span class="p">.</span><span class="nx">href</span><span class="p">);</span>
+    <span class="p">})</span>
+
+    <span class="c1">// Fetch a collection of musicians</span>
+    <span class="nx">Restangular</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span><span class="s2">"musicians"</span><span class="p">).</span><span class="nx">getList</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">musicians</span><span class="p">){</span>
+        <span class="c1">// Get the first musician</span>
+        <span class="kd">var</span> <span class="nx">musician</span> <span class="o">=</span> <span class="nx">musicians</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">musicians</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+        <span class="c1">// Get the first instrument related to the musician</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">musicians</span><span class="p">.</span><span class="nx">_embedded</span><span class="p">.</span><span class="nx">instruments</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+        <span class="c1">// Get the uri of the next page of musicians</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">musicians</span><span class="p">.</span><span class="nx">_links</span><span class="p">.</span><span class="nx">next</span><span class="p">.</span><span class="nx">href</span><span class="p">);</span>
+
+        <span class="c1">// Change the name attribute for the musician</span>
+        <span class="nx">musician</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s2">"Steven"</span><span class="p">;</span>
+
+        <span class="c1">// This will do a PUT to https://api.acme.com/musicians/1</span>
+        <span class="c1">// Thanks to the self reference property specified above</span>
+        <span class="nx">musician</span><span class="p">.</span><span class="nx">put</span><span class="p">()</span>
+    <span class="p">})</span>
+
+<span class="p">});</span>
+</pre></td></tr></tbody></table>
+</div>
+
+<p>That would be it! With a bunch of lines of code you can start consuming Hypermedia Rest Api’s with Restangular.</p>
+
+<p>For the moment I’m quite happy with the whole “pseudo” Hypermedia implementation that we’ve done on our company. I say pseudo because we are not that strict. We are not using <strong>curies</strong> and we don’t even have self reference links in every resource, we are just taking some parts of the specification that helps us on building faster ( pagination as _links, not needing to build manually the urls of the Api calls, accessing easily to nested or embedded resources, etc… ). </p>
+
+<p>I can see a huge potential on Hypermedia but I’m missing some big things too. For example the ability to have a form specification, perhaps something like <a href="https://github.com/joshfire/jsonform">Json Form</a> would be a nice starting point.</p>
+
+<h2 id="related-resources">Related resources:</h2>
+
+<ul>
+  <li><a href="http://apievangelist.com/">What is an API?</a></li>
+  <li><a href="http://hypermedia.apievangelist.com/">Kin Lane on Hypermedia</a></li>
+  <li><a href="http://stateless.co/hal_specification.html">Hypermedia Specification</a></li>
+  <li><a href="https://developers.teowaki.com/api-hypermedia">Teowaki Api</a></li>
+  <li><a href="http://blog.smartbear.com/api-testing/kin-lane-why-all-the-hate-toward-hypermedia/">Hypermedia the next “cloud”?</a></li>
+</ul>
+
+      -->
+    </div>
+  </article>
   <article class="post notes order">
     <div class="container">
       <h2><a href="/2014/11/19/rake-routes-for-grape-api/">Rake routes for Grape Api</a> <span>Nov 19</span></h2>
@@ -128,9 +497,30 @@
 
 
 
+	<!-- Google Analytics -->
+	<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(["_setAccount", "UA-57904370-1"]);
+  _gaq.push(["_trackPageview"]);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <!-- Fitvids -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fitvids/1.1.0/jquery.fitvids.min.js"></script>
+
+	<script>
+	  $(document).ready(function(){
+	    // Target your .container, .wrapper, .post, etc.
+	    $("body").fitVids();
+	  });
+	</script>
+
   </body>
 </html>
