@@ -5,10 +5,30 @@
   <id>http://blog.url.com/</id>
   <link href="http://blog.url.com/"/>
   <link href="http://blog.url.com/feed.xml" rel="self"/>
-  <updated>2014-12-21T14:17:00+01:00</updated>
+  <updated>2015-01-02T20:00:00+01:00</updated>
   <author>
     <name>Blog Author</name>
   </author>
+  <entry>
+    <title>A beauty that you can't predict</title>
+    <link rel="alternate" href="http://blog.url.com/2015/01/02/paul-auster-a-beauty-that-you-can-t-predict/"/>
+    <id>http://blog.url.com/2015/01/02/paul-auster-a-beauty-that-you-can-t-predict/</id>
+    <published>2015-01-02T20:00:00+01:00</published>
+    <updated>2015-01-02T21:06:24+01:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;h1 id="a-beauty-that-you-cant-predict"&gt;A beauty that you can’t predict&lt;/h1&gt;
+
+&lt;iframe src="//player.vimeo.com/video/115796360" width="500" height="281" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""&gt;&lt;/iframe&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;When I was younger I wanted to make beautiful things, and then as I got older an more experienced in this, I understood that is not what is about. The essence of being an artist is to confront the thing you are trying to do, to tackle it hand on. And if wrestling with this things you manage to do something that is good, then it will have its own beauty, but it’s not the kind of beauty that you can predict. Is nothing that you can strive for.
+What you have to strive for is to engage with your material as deeply as you can. &lt;br /&gt;
+&lt;strong&gt;Paul Auster&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+  </entry>
   <entry>
     <title>Consuming Hypermedia APIs with Restangular</title>
     <link rel="alternate" href="http://blog.url.com/2014/12/21/consuming-hypermedia-apis-with-restangular/"/>
@@ -478,43 +498,6 @@
 I can say, the best album I’ve heard in YEARS. The kind of album that makes me make music, a collection of good big songs.&lt;/p&gt;
 
 &lt;iframe src="https://embed.spotify.com/?uri=spotify:album:1DtWmx5n2RoTuMFe3wn2pY" width="300" height="380" frameborder="0" allowtransparency="true"&gt;&lt;/iframe&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Sometimes you have to write to figure it out</title>
-    <link rel="alternate" href="http://blog.url.com/2014/07/16/sometimes-you-have-to-write-to-figure-it-out/"/>
-    <id>http://blog.url.com/2014/07/16/sometimes-you-have-to-write-to-figure-it-out/</id>
-    <published>2014-07-17T00:16:00+02:00</published>
-    <updated>2014-11-15T19:37:25+01:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;h1 id="sometimes-you-have-to-write-to-figure-it-out"&gt;Sometimes you have to write to figure it out&lt;/h1&gt;
-
-&lt;iframe width="560" height="315" src="//www.youtube.com/embed/VOU6zoRI3BU" frameborder="0" allowfullscreen=""&gt;&lt;/iframe&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Your real problem is that you don’t know what you think &lt;br /&gt;
-Sometimes you have to write to figure it out&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Sometimes you have to live to figure out &lt;br /&gt;
-Meticolous plans often don’t hold up&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Less planning and more living &lt;br /&gt;
-Burst the double bubble of comfort and convention &lt;br /&gt;
-and just do stuff &lt;br /&gt;
-even if you don’t know where it’ll lead &lt;br /&gt;
-but because &lt;br /&gt;
-This may sounds risky… and it is.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;The greater risk is fear failure more than mediocrity&lt;/p&gt;
-&lt;/blockquote&gt;
 </content>
   </entry>
 </feed>

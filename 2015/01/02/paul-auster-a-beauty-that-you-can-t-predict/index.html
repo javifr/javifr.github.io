@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Use title if it's in the page YAML frontmatter -->
-    <title>Rake routes for Grape Api</title>
+    <title>A beauty that you can't predict</title>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
@@ -22,7 +22,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body class="x2014 x2014_11 x2014_11_19 x2014_11_19_rake-routes-for-grape-api x2014_11_19_rake-routes-for-grape-api_index">
+  <body class="x2015 x2015_01 x2015_01_02 x2015_01_02_paul-auster-a-beauty-that-you-can-t-predict x2015_01_02_paul-auster-a-beauty-that-you-can-t-predict_index">
 
 <!-- Fixed navbar -->
 <nav class="navbar navbar-inverse" role="navigation">
@@ -48,62 +48,15 @@
 
 <div class="container">
   <article class="col-md-8 col-md-offset-2">
-  <h1 id="rake-routes-for-grape">Rake routes for Grape</h1>
+  <h1 id="a-beauty-that-you-cant-predict">A beauty that you can’t predict</h1>
 
-<p>If you are a <a href="http://rubyonrails.org/">Rails</a> developer using <a href="https://github.com/intridea/grape">Grape</a> you’ll miss a command similar to <code>rake routes</code> but listing the Grape generated routes. In order to have the same functionallity I’ve build a little rake task.</p>
+<iframe src="//player.vimeo.com/video/115796360" width="500" height="281" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
 
-<p>In your rails ( or rails-api ) project create this file <strong>/lib/tasks/grape.rake</strong> with this content:</p>
-
-<div class="highlight ruby"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3
-4
-5
-6</pre></td><td class="code"><pre><span class="n">namespace</span> <span class="ss">:grape</span> <span class="k">do</span>
-  <span class="n">desc</span> <span class="s2">"routes"</span>
-  <span class="n">task</span> <span class="ss">:routes</span> <span class="o">=&gt;</span> <span class="ss">:environment</span> <span class="k">do</span>
-    <span class="no">API</span><span class="o">::</span><span class="no">Root</span><span class="p">.</span><span class="nf">routes</span><span class="p">.</span><span class="nf">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">route</span><span class="o">|</span> <span class="nb">puts</span> <span class="s2">"</span><span class="si">#{</span><span class="n">route</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">"</span> <span class="p">}</span>
-  <span class="k">end</span>
-<span class="k">end</span>
-</pre></td></tr></tbody></table>
-</div>
-
-<p>Then, you can call it inside your project like this:</p>
-
-<div class="highlight shell"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>rake grape:routes
-</pre></td></tr></tbody></table>
-</div>
-
-<p>And this could be a sample output:</p>
-
-<div class="highlight shell"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3
-4
-5
-6</pre></td><td class="code"><pre><span class="nv">version</span><span class="o">=</span>v1, <span class="nv">method</span><span class="o">=</span>POST, <span class="nv">path</span><span class="o">=</span>/customers<span class="o">(</span>.:format<span class="o">)</span>
-<span class="nv">version</span><span class="o">=</span>v1, <span class="nv">method</span><span class="o">=</span>GET, <span class="nv">path</span><span class="o">=</span>/customers<span class="o">(</span>.:format<span class="o">)</span>
-<span class="nv">version</span><span class="o">=</span>v1, <span class="nv">method</span><span class="o">=</span>GET, <span class="nv">path</span><span class="o">=</span>/customers/:id<span class="o">(</span>.:format<span class="o">)</span>
-<span class="nv">version</span><span class="o">=</span>v1, <span class="nv">method</span><span class="o">=</span>PATCH, <span class="nv">path</span><span class="o">=</span>/customers/:id<span class="o">(</span>.:format<span class="o">)</span>
-<span class="nv">version</span><span class="o">=</span>v1, <span class="nv">method</span><span class="o">=</span>GET, <span class="nv">path</span><span class="o">=</span>/rewards<span class="o">(</span>.:format<span class="o">)</span>
-<span class="nv">version</span><span class="o">=</span>v1, <span class="nv">method</span><span class="o">=</span>POST, <span class="nv">path</span><span class="o">=</span>/rewards<span class="o">(</span>.:format<span class="o">)</span>
-</pre></td></tr></tbody></table>
-</div>
-
-	  <div id="disqus_thread"></div>
-<script type="text/javascript">
-//<![CDATA[
-                  var disqus_shortname = 'javifernandez';
-          
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-//]]>
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+<blockquote>
+  <p>When I was younger I wanted to make beautiful things, and then as I got older an more experienced in this, I understood that is not what is about. The essence of being an artist is to confront the thing you are trying to do, to tackle it hand on. And if wrestling with this things you manage to do something that is good, then it will have its own beauty, but it’s not the kind of beauty that you can predict. Is nothing that you can strive for.
+What you have to strive for is to engage with your material as deeply as you can. <br />
+<strong>Paul Auster</strong></p>
+</blockquote>
 
   </article>
 </div>
