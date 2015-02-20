@@ -13,6 +13,7 @@ Bootstrap base overide
 body{
   font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
+  line-height:1.8em;
 }
 
 p{
@@ -175,4 +176,9 @@ iframe,embed,img,video{
 .fluid-width-video-wrapper{
   margin-top:2em;
   margin-bottom:2em;
+}
+
+.container p img{
+  margin-top: 15px;
+  margin-bottom:15px;
 }

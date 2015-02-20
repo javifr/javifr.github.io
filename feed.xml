@@ -5,10 +5,42 @@
   <id>http://blog.url.com/</id>
   <link href="http://blog.url.com/"/>
   <link href="http://blog.url.com/feed.xml" rel="self"/>
-  <updated>2015-01-02T20:00:00+01:00</updated>
+  <updated>2015-01-28T21:48:00+01:00</updated>
   <author>
     <name>Blog Author</name>
   </author>
+  <entry>
+    <title>Overstand, a simultaneous translation messaging app</title>
+    <link rel="alternate" href="http://blog.url.com/2015/01/28/overstand-a-simultaneous-translation-messaging-app/"/>
+    <id>http://blog.url.com/2015/01/28/overstand-a-simultaneous-translation-messaging-app/</id>
+    <published>2015-01-28T21:48:00+01:00</published>
+    <updated>2015-02-20T18:35:05+01:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;h1 id="overstand-a-simultaneous-translation-messaging-app"&gt;Overstand, a simultaneous translation messaging app&lt;/h1&gt;
+
+&lt;p&gt;I’m excited to introduce one of my personal projects, it’s called &lt;a href="http://www.overstand.io"&gt;Overstand&lt;/a&gt;. Let’s say that is an app that allows you to go far beyond understanding: you chat with people from different countries in your own language, everyone is writing in their own language, everyone receives messages in their own language. &lt;strong&gt;A simultaneous translation messaging app!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://www.overstand.io"&gt;&lt;img src="/2015-01-28-overstand-a-simultaneous-translation-messaging-app/overstand-screenshot.png" /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;It’s in very Beta, but I made it as a holidays project as &lt;strong&gt;I wanted to build a functional product from zero in no more than 4-5 days&lt;/strong&gt;. I took care of the naming, branding, concept, an hipothetical monetization path, the marketing website and of course the development of the app for Android, iOs and the web!&lt;/p&gt;
+
+&lt;p&gt;The design is focused on offering no barriers in order to start a conversation. In matter of seconds you can start messaging. No need to sign up or adding contacts, just share a link via e-mail and you can start a simultaneously translated conversation.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://www.overstand.io"&gt;&lt;img src="/2015-01-28-overstand-a-simultaneous-translation-messaging-app/overstand-screenshot-2.png" /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;It’s now available as a &lt;a href="http://app.overstand.io"&gt;web app&lt;/a&gt;, on the &lt;a href="https://play.google.com/store/apps/details?id=com.overstand.io"&gt;Play Store&lt;/a&gt; and on the &lt;a href="https://itunes.apple.com/es/app/overstand/id962440807?l=en&amp;amp;mt=8"&gt;iTunes Store&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I’m quite happy with the results given the time spent on the creation, and has proven to be a very good exercise in order to identify the core things in order to build a product in little time.&lt;/p&gt;
+
+&lt;p&gt;Check it out here: &lt;a href="http://www.overstand.io"&gt;www.overstand.io&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;UPDATE&lt;/strong&gt;: Overstand has been featured on the &lt;a href="http://ionicframework.com/"&gt;Ionic Framework&lt;/a&gt; showcase, take a look! &lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://showcase.ionicframework.com/"&gt;&lt;img src="/2015-01-28-overstand-a-simultaneous-translation-messaging-app/ionic-showcase.png" /&gt;&lt;/a&gt;&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>A beauty that you can't predict</title>
     <link rel="alternate" href="http://blog.url.com/2015/01/02/paul-auster-a-beauty-that-you-can-t-predict/"/>
@@ -481,23 +513,6 @@ What you have to strive for is to engage with your material as deeply as you can
     <content type="html">&lt;h1 id="damon-albarn-at-the-creative-class"&gt;Damon Albarn at The Creative Class&lt;/h1&gt;
 
 &lt;iframe src="//player.vimeo.com/video/98330468?color=09e0c4" width="500" height="281" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""&gt;&lt;/iframe&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Delta Spirit - Into the wide</title>
-    <link rel="alternate" href="http://blog.url.com/2014/11/09/delta-spirit-into-the-wide/"/>
-    <id>http://blog.url.com/2014/11/09/delta-spirit-into-the-wide/</id>
-    <published>2014-11-09T13:02:00+01:00</published>
-    <updated>2014-11-15T19:37:37+01:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;h1 id="delta-spirit---into-the-wide"&gt;Delta Spirit - Into the wide&lt;/h1&gt;
-
-&lt;p&gt;Delta Spirit last release is terrific.&lt;br /&gt;
-I can say, the best album I’ve heard in YEARS. The kind of album that makes me make music, a collection of good big songs.&lt;/p&gt;
-
-&lt;iframe src="https://embed.spotify.com/?uri=spotify:album:1DtWmx5n2RoTuMFe3wn2pY" width="300" height="380" frameborder="0" allowtransparency="true"&gt;&lt;/iframe&gt;
 </content>
   </entry>
 </feed>
